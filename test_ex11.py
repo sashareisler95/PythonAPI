@@ -5,6 +5,7 @@ import requests
 def test_check_cookie():
     response = requests.get('https://playground.learnqa.ru/api/homework_cookie', verify=False)
     cookie_value = response.cookies.values()
+    assert len(cookie_value) != 0, 'No cookie in response!'
     cookie_value = ''.join(cookie_value)
     cookie_name = response.cookies.keys()
     cookie_name = ''.join(cookie_name)
